@@ -1,0 +1,128 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Header */
+header {
+    background-color: lightblue;
+}
+
+header h1 {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Menu */
+.menu {
+    background-color: lightslategray;
+    padding: 15px;
+    text-align: center;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: 15px;
+    color: white;
+}
+
+.menu a:hover {
+    color: rgb(182, 214, 235);
+}
+
+/* Container */
+.containerIndex {
+    text-align: center;
+}
+
+.containerIndex p {
+    padding: 30px;
+}
+
+.containerIndex img {
+    width: 30%;
+    height: 30%;
+}
+
+/* Controle de Estoque */
+.topo {
+    background-color: lightblue;
+}
+
+.topo h2 {
+    padding: 15px;
+    text-align: center;
+}
+
+.tabela {
+    background-color: #e4e4e4;
+}
+
+.tabela tr th {
+    padding: 15px;
+}
+
+.itemDesc {
+    background-color: rgb(170, 170, 170);
+    padding: 10px;
+}
+
+.itemQtd {
+    background-color: rgb(170, 170, 170);
+}
+
+.itemValor {
+    padding: 25px;
+}
+
+.tabela tr td {
+    text-align: center;
+}
+
+/* Adicionar Produto */
+.container {
+    text-align: center;
+}
+
+.btn {
+    border: 1px;
+    padding: 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    background-color: lightblue;
+    color: black;
+}
+
+.btnAdd {
+    border: 1px;
+    padding: 15px;
+}
+
+.btnAdd:hover {
+    background-color: darkgray;
+    color: white;
+}
+
+/* Lista de Funcionários */
+.containerFuncionarios {
+    text-align: center;
+}
+
+.nome {
+    background-color: rgb(204, 204, 204);
+    padding: 10px;
+    list-style: none;
+}
+
+.data {
+    background-color: gainsboro;
+    padding: 10px;
+    list-style: none;
+}
+
+/* Footer */
+.footer {
+    background-color: lightblue;
+    padding: 15px;
+    text-align: center;
+}

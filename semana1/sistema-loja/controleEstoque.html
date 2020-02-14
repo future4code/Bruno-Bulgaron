@@ -5,54 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Super Loja - Controle de Estoque</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h2>Controle de Estoque</h2>
-    <table>
-        <tr>
-            <th>Foto</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-            <th>Quantidade</th>
-        </tr>
-
-        <tr>
-            <td><img src="https://http2.mlstatic.com/conjunto-3-xicara-cafe-porcelana-75ml-c-pires-soleil-white-D_NQ_NP_624497-MLB32629836850_102019-F.jpg"></td>
-            <td>Xícara de Café</td>
-            <td>R$5,00</td>
-            <td>10</td>
-        </tr>
-
-        <tr>
-            <td><img src="https://www.olhonopreco.com.br/media/1315-pao-de-queijo-pequeno-100g-md.jpg"></td>
-            <td>Pão de Queijo</td>
-            <td>R$2,00</td>
-            <td>5</td>
-        </tr>
-
-        <tr>
-            <td><img src="data:image/png;base64,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"></td>
-            <td>Lápis</td>
-            <td>R$1,00</td>
-            <td>7</td>
-        </tr>
-
-        <tr>
-            <td><img src="https://1.bp.blogspot.com/-q-lXD0sWc5A/UNRhcontzwI/AAAAAAAALcg/X1oKSqrJcuY/s1600/Imagens-em-png-Queroimagem.com+(204).png"></td>
-            <td>Borracha</td>
-            <td>R$0,50</td>
-            <td>15</td>
-        </tr>
-
-        <tr>
-            <td><img src="https://www.lemmabrindes.com/images/uploads/imgs/produtos/produtosfotos/256x316/caderno-de-couro-sintetico-5531d1-1494594474.jpg"></td>
-            <td>Caderno</td>
-            <td>R$9,90</td>
-            <td>12</td>
-        </tr>
-    </table>
-
+    <div class="topo">
+        <h2>Controle de Estoque</h2>
+    </div>
     <br>
-    <a href="index.html">Menu Principal</a>
+    <a href="index.html" class="btn">Menu Principal</a>
+    <br>
+    <br>
+    <div class="tabela">
+        <table>
+            <tr>
+                <th>Foto</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+            </tr>
+
+            <tr>
+                <td><img src="https://www.thomann.de/pics/bdb/432932/13165166_800.jpg"></td>
+                <td class="itemDesc">Teclado Yamaha PSR E-463</td>
+                <td class="itemValor">R$1.250,00</td>
+                <td class="itemQtd">10</td>
+            </tr>
+
+            <tr>
+                <td><img src="https://media.sweetwater.com/api/i/q-82__ha-a8b0b8401898c1a9__hmac-8baba4611e757f63276edb1c0a9126ca7ffd2abe/images/items/750/Fantom-6-large.jpg"></td>
+                <td class="itemDesc">Teclado Roland FANTOM-6</td>
+                <td class="itemValor">R$14.000,00</td>
+                <td class="itemQtd">5</td>
+            </tr>
+
+            <tr>
+                <td><img src="https://www.fullcompass.com/common/products/lgr/212183.jpg"></td>
+                <td class="itemDesc">Teclado KORG Kronos</td>
+                <td class="itemValor">R$15.000,00</td>
+                <td class="itemQtd">7</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
