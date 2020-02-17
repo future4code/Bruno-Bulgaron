@@ -104,12 +104,12 @@ div:last-child {
 }
 
 .tabela-container {
-    
+    width: 100vh;
     margin: 0 auto;
 }
 
 table {
-    width: 60%;
+    width: 100%;
     text-align: center;
 }
 
