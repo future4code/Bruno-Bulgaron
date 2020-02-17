@@ -35,7 +35,7 @@ div>p:first-child {
 }
 
 div img {
-    background: black;
+    /* background: black; */
 }
 
 .botao-amarelo {
@@ -60,7 +60,8 @@ div img {
 }
 
 .icone {
-    height: 15px;
+    height: 20px;
+    width: 20px;
 }
 
 
@@ -100,6 +101,11 @@ div img {
 div:nth-child(2),
 div:last-child {
     text-align: center;
+}
+
+.tabela-container {
+    
+    margin: 0 auto;
 }
 
 table {
