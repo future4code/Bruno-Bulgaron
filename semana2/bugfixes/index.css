@@ -103,6 +103,13 @@ div:last-child {
     text-align: center;
 }
 
+input {
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
 .tabela-container {
     width: 100vh;
     margin: 0 auto;
@@ -150,5 +157,6 @@ td button:hover {
 }
 
 #back-button:hover {
-    background-color: #635a3d
+    background-color: #635a3d;
+    color: white;
 }
