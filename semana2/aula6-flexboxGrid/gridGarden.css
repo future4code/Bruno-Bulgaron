@@ -1,0 +1,123 @@
+/* Respostas Grid Garden - Bruno Bulgaron */
+
+/* Level 1 */
+.garden {
+    grid-column-start: 3;
+}
+
+/* Level 2 */
+.garden {
+    grid-column-start: 5;
+}
+
+/* Level 3 */
+.garden {
+    grid-column-end: 4;
+}
+
+/* Level 4 */
+.garden {
+    grid-column-end: 2;
+}
+
+/* Level 5 */
+.garden {
+    grid-column-end: -2;
+}
+
+/* Level 6 */
+.garden {
+    grid-column-start: -3;
+}
+
+/* Level 7 */
+.garden {
+    grid-column-end: span 2;
+}
+
+/* Level 8 */
+.garden {
+    grid-column-end: span 5;
+}
+
+/* Level 9 */
+.garden {
+    grid-column-start: span 3;
+}
+
+/* Level 10 */
+.garden {
+    grid-column: 4/6;
+}
+
+/* Level 11 */
+.garden {
+    grid-column: 2/5;
+}
+
+/* Level 12 */
+.garden {
+    grid-row-start: 3;
+}
+
+/* Level 13 */
+.garden {
+    grid-row: 3/6;
+}
+
+/* Level 14 */
+.garden {
+    grid-column: 2;
+    grid-row: 5;
+}
+
+/* Level 15 */
+.garden {
+    grid-column: 2/6;
+    grid-row: 1/6;
+}
+
+/* Level 16 */
+.garden {
+    grid-area: 1/6/4/2;
+}
+
+/* Level 17 */
+.garden {
+    grid-area: 2/3/5/6;
+}
+
+/* Level 18 */
+.garden {
+    order: 1;
+}
+
+/* Level 19 */
+.garden {
+    order: -1;
+}
+
+/* Level 20 */
+.garden {
+    grid-template-columns: 50%;
+}
+
+/* Level 21 */
+.garden {
+    grid-template-columns: repeat(8, 12.5%);
+}
+
+/* Level 22 */
+.garden {
+    grid-template-columns: repeat(3, 100px 3em 40%);
+}
+
+/* Level 23 */
+.garden {
+    grid-template-columns: 1fr 5fr;
+}
+
+/* Level 24 */
+.garden {
+    
+}

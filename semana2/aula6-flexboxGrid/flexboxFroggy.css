@@ -1,0 +1,133 @@
+/* Respostas Flexbox Froggy - Bruno Bulgaron */
+
+/* Level 1 */
+.froggy {
+    justify-content: flex-end;
+}
+
+/* Level 2 */
+.froggy {
+    justify-content: center;
+}
+
+/* Level 3 */
+.froggy {
+    justify-content: space-around;
+}
+
+/* Level 4 */
+.froggy {
+    justify-content: space-between;
+}
+
+/* Level 5 */
+.froggy {
+    align-items: flex-end;
+}
+
+/* Level 6 */
+.froggy {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Level 7 */
+.froggy {
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+/* Level 8 */
+.froggy {
+    flex-direction: row-reverse;
+}
+
+/* Level 9 */
+.froggy {
+    flex-direction: column;
+}
+
+/* Level 10 */
+.froggy {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+/* Level 11 */
+.froggy {
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Level 12 */
+.froggy {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+/* Level 13 */
+.froggy {
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Level 14 */
+.froggy {
+    order: 1;
+}
+
+/* Level 15 */
+.froggy {
+    order: -3;
+}
+
+/* Level 16 */
+.froggy {
+    align-self: flex-end;
+}
+
+/* Level 17 */
+.froggy {
+    align-self: flex-end;
+    order: 6;
+}
+
+/* Level 18 */
+.froggy {
+    flex-wrap: wrap;
+}
+
+/* Level 19 */
+.froggy {
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* Level 20 */
+.froggy {
+    flex-flow: column wrap;
+}
+
+/* Level 21 */
+.froggy {
+    align-content: flex-start;
+}
+
+/* Level 22 */
+.froggy {
+    align-content: flex-end;
+}
+
+/* Level 23 */
+.froggy {
+    flex-direction: column-reverse;
+    align-content: center;
+}
+
+/* Level 24 */
+.froggy {
+    flex-flow: column-reverse wrap-reverse;
+    align-content: space-between;
+    justify-content: center;
+}
