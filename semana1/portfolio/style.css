@@ -1,0 +1,220 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto Slab', serif;
+}
+
+body {
+    background: linear-gradient(60.61deg, #5B9DB1 -148.96%, rgba(91, 157, 177, 0) 130%);
+}
+
+/* Navbar */
+.nav {
+    background-color: #65BBD6;
+    width: 100%;
+    height: 70px;
+}
+
+.nav h1 {
+    position: absolute;
+    padding: 4px;
+    float: left;
+    margin-left: 10%;
+    margin-top: 10px;
+}
+
+span {
+    color: rgb(240, 240, 240);
+}
+
+.nav ul {
+    float: right;
+    margin-top: 10px;
+}
+
+.nav li {
+    display: inline-block;
+    padding: 10px 10px;
+    margin-top: 3px;    
+}
+
+.nav a {
+    color: rgb(240, 240, 240);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.nav a:hover {
+    background-color: rgb(87, 161, 184);
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#piano {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    float: left;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+
+/* Meio do Site */
+.container {
+    margin: 0 auto;
+    width: 850px;
+}
+
+#bemvindo {
+    float: right;
+    margin-top: 200px;
+    margin-right: 150px;
+}
+
+#descCurta {
+    font-size: 20px;
+    margin-top: 70px;
+}
+
+#descCurta span {
+    color: black;
+    font-weight: bold;
+}
+
+#fotoPerfil {
+    width: 250px;
+    border: 2px solid white;
+    margin-top: 60px;
+}
+
+/* Footer */
+.footer {
+    padding: 10px;
+    background-color: #65BBD6;
+    text-align: center;
+    color: rgb(11, 51, 104);
+}
+
+.footer p:hover {
+    color: white;
+    cursor: pointer;
+}
+
+/* PÁGINA Sobre Mim */
+#sobreMim {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#habilidadeHTML {
+    /* color: rgb(255, 123, 0); */
+    color: white;
+    background-color: rgb(173, 206, 216);
+    border-radius: 10px;
+    padding: 5px;
+    display: inline;
+}
+
+#descHTML {
+    font-size: 18px;
+}
+
+#descCSS {
+    font-size: 19px;
+}
+
+#habilidadeCSS {
+    color: white;
+    background-color: rgb(173, 206, 216);
+    border-radius: 10px;
+    padding: 5px;
+    display: inline;
+}
+
+/* PÁGINA Projetos */
+.containerProjetos {
+    text-align: center;
+}
+
+.projeto {
+    padding: 50px;
+    background-color: rgb(205, 220, 235);
+    font-weight: bold;
+}
+
+.data {
+    padding: 50px;
+    background-color: rgb(210, 228, 245);
+}
+
+.status {
+    background-color: rgb(205, 220, 235);
+}
+
+.fotoProjeto {
+    width: 300px;
+}
+
+.finalizado {
+    color: green;
+    font-weight: bold;
+}
+
+.containerAmostra {
+    text-align: center;
+}
+
+.amostraProjeto {
+    width: 800px;
+}
+
+
+/* PÁGINA Contato */
+.containerForm {
+    background-color: rgba(255, 255, 255, 0.144);
+}
+
+#contato {
+    text-align: center;
+}
+
+#formulario {
+    text-align: center;
+}
+
+#btnEnviar {
+    background-color: #5B9DB1;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #f2fbff;
+    border: 1px;
+}
+
+#btnEnviar:hover {
+    background-color: white;
+    cursor: pointer;
+    color: #5B9DB1;
+}
+
+.redesSociais p {
+    margin-left: 50px;
+}
+
+.redesSociais ul li {
+    margin-left: 50px;
+    list-style: none;
+    padding: 10px;
+    display: inline-block;
+}
+
+.redesSociais ul li:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.redesSociais a {
+    text-decoration: none;
+}
