@@ -38,3 +38,9 @@ header {
     cursor: pointer;
     background-color: rgb(139, 168, 187);
 }
+
+/* Section - Exibir Posts */
+.section-ExibirPosts {
+    background-color: rgb(197, 213, 224);
+    padding: 20px 30px;
+}
