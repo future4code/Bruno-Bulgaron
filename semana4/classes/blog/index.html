@@ -8,6 +8,29 @@
     <script src="main.js" defer></script>
 </head>
 <body>
+
+    <!-- Topo -->
+    <header>
+        <h1>Blog - Bruno Bulgaron</h1>
+        <p>Projeto de um blog simples para a aula da Future4 :D</p>
+    </header>
+
+    <!-- Formulário Add Posts -->
+    <section class="section-addPosts">
+        <div class="container">
+            <h3>Inserir Posts</h3>
+
+            <form class="myForm" action="#">
+                <label for="title">Título:</label>
+                <input type="text" name="ititle" id="title" placeholder="Digite o título do post">
+                <label for="author">Autor:</label>
+                <input type="text" name="iauthor" id="author" placeholder="Digite o autor do post">
+                <label for="content">Conteúdo:</label>
+                <textarea name="icontent" id="content" cols="30" rows="3" placeholder="Digite o conteúdo do post"></textarea>
+                <input type="submit" value="Criar Post!" id="btnCriar">
+            </form>
+        </div>
+    </section>
     
 </body>
 </html>

@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+header {
+    background-color: rgb(177, 210, 231);
+    padding: 10px 30px;
+}
+
+/* Section - Add Posts */
+.section-addPosts {
+    background-color: rgb(210, 228, 240);
+    padding: 20px 30px;
+}
+
+.myForm {
+    display: grid;
+    grid-template-columns: repeat(2, 25%);
+    gap: 10px;
+}
+
+#btnCriar {
+    background-color: rgb(177, 210, 231);
+    border: none;
+    border-radius: 5px;
+    padding: 7px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+#btnCriar:hover {
+    cursor: pointer;
+    background-color: rgb(139, 168, 187);
+}
