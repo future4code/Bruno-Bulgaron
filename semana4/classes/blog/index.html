@@ -22,12 +22,15 @@
 
             <form class="myForm" action="#">
                 <label for="title">Título:</label>
-                <input type="text" name="ititle" id="title" placeholder="Digite o título do post">
+                <input type="text" id="title" placeholder="Digite o título do post">
+
                 <label for="author">Autor:</label>
-                <input type="text" name="iauthor" id="author" placeholder="Digite o autor do post">
+                <input type="text" id="author" placeholder="Digite o autor do post">
+
                 <label for="content">Conteúdo:</label>
-                <textarea name="icontent" id="content" cols="30" rows="3" placeholder="Digite o conteúdo do post"></textarea>
-                <input type="submit" value="Criar Post!" id="btnCriar">
+                <textarea id="content" cols="30" rows="3" placeholder="Digite o conteúdo do post"></textarea>
+                
+                <button id="btnCriar" onclick="criaPost()">Criar Post!</button>
             </form>
         </div>
     </section>
