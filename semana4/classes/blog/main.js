@@ -16,6 +16,17 @@ function criaPost() {
         autorDoPost.value, // Autor
         conteudoDoPost.value // Conteúdo
         );
+    
+        let arrayDoPost = [novoPost.titulo, novoPost.autor, novoPost.conteudo];
 
-    // console.log(novoPost);
+        tituloDoPost.value = ""
+        autorDoPost.value = ""
+        conteudoDoPost.value = ""
+
+        
+        // console.log(novoPost);
+        console.log(arrayDoPost[0]);
+        console.log(arrayDoPost[1]);
+        console.log(arrayDoPost[2]);
+
 }
