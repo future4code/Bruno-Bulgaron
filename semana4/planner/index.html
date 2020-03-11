@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner Semanal - Bruno Bulgaron</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    
+    <!-- Topo - Planner -->
+    <header>
+        <label for="inputTexto">Nova Tarefa:</label>
+        <input type="text" id="inputTexto">
+        <select id="listaDias">
+            <option value="segunda">Segunda-Feira</option>
+            <option value="terca">Terça-Feira</option>
+            <option value="quarta">Quarta-Feira</option>
+            <option value="quinta">Quinta-Feira</option>
+            <option value="sexta">Sexta-Feira</option>
+            <option value="sabado">Sábado</option>
+            <option value="domingo">Domingo</option>
+        </select>
+        <button class="btnCriaTarefa" onclick="criaTarefa()">Criar tarefa!</button>
+        <button class="btnApagaTarefas" onclick="apagaTarefas()">Apagar tarefas</button>
+    </header>
+
+    <!-- Container - Planner -->
+    <div class="container">
+        <div>
+            <h2>Segunda-Feira</h2>
+            <ul id="segundaFeira">
+                <!-- <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li> -->
+            </ul>
+        </div>
+        <div>
+            <h2>Terça-Feira</h2>
+            <ul id="tercaFeira">
+                <!-- <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li> -->
+            </ul>
+        </div>
+        <div>
+            <h2>Quarta-Feira</h2>
+            <ul id="quartaFeira">
+                <!-- <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li> -->
+            </ul>
+        </div>
+        <div>
+            <h2>Quinta-Feira</h2>
+            <ul id="quintaFeira">
+                <!-- <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li> -->
+            </ul>
+        </div>
+        <div>
+            <h2>Sexta-Feira</h2>
+            <ul id="sextaFeira">
+                <!-- <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li> -->
+            </ul>
+        </div>
+        <div>
+            <h2>Sábado</h2>
+            <ul id="sabado">
+                <!-- <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li> -->
+            </ul>
+        </div>
+        <div>
+            <h2>Domingo</h2>
+            <ul id="domingo">
+                <!-- <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li>
+                <li>placeholder</li> -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
