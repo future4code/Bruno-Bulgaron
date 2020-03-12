@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Bruno Bulgaron</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <!-- Topo -->
+    <header>
+        <h1>Blog - Bruno Bulgaron</h1>
+        <p>Projeto de um blog simples para a aula da Future4 :D</p>
+    </header>
+
+    <!-- Formulário Add Posts -->
+    <section class="section-addPosts">
+        <div class="container">
+            <h3>Inserir Posts</h3>
+
+            <form class="myForm" action="#">
+                <label for="title">Título:</label>
+                <input type="text" id="title" placeholder="Digite o título do post">
+
+                <label for="author">Autor:</label>
+                <input type="text" id="author" placeholder="Digite o autor do post">
+
+                <label for="content">Conteúdo:</label>
+                <textarea id="content" cols="30" rows="3" placeholder="Digite o conteúdo do post"></textarea>
+
+                <button id="btnCriar" onclick="criaPost()">Criar Post!</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Exibit Posts -->
+    <section class="section-ExibirPosts">
+        <div class="container">
+            <h3>Lista de Posts</h3>
+            <div id="todosOsPosts">
+                
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
