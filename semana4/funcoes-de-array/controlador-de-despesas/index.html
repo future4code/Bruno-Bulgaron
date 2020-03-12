@@ -40,8 +40,8 @@
             <div class="container">
                 <h1>Despesas Detalhadas</h1>
                 <form action="#">
-                    <label for="tipoDespesa">Tipo de despesa:</label>
-                    <select id="tipoDespesa">
+                    <label for="tipoDespesaFiltrada">Tipo de despesa:</label>
+                    <select id="tipoDespesaFiltrada">
                         <option value="despesaAlimentacao">Alimentação</option>
                         <option value="despesaCasa">Casa</option>
                         <option value="despesaViagens">Viagens</option>
@@ -57,15 +57,22 @@
                     <button id="btnLimparFiltros" onclick="limparFiltros()">Limpar filtros</button>
                 </form>
 
-                <div class="listaFiltrada">
-                    
+                <div id="listaFiltrada">
+
                 </div>  
             </div>
         </section>
 
+        <!-- Seção Extrato -->
+        <section id="section-extrato">
+            <div id="container">
+                <h1>Extrato</h1>
+                <div id="conteudoExtrato"></div>
+                <div id="mostrarExtrato"></div>
+            </div>
+        </section>
 
-
-
+    
     </div>
 </body>
 </html>

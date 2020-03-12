@@ -8,6 +8,8 @@ class Despesa {
 
 let arrayDeDespesa = [];
 
+let somaDasDespesas;
+
 function addDespesa(){
 
     let campoValor = document.getElementById("valorDespesa");
@@ -27,34 +29,35 @@ function addDespesa(){
 
         console.log(arrayDeDespesa);
 
-    }
+        somaDespesas();
+        mostrarExtrato();
 
+    }
 }
 
 
 
 function filtrarDespesas() {
 
-    if(valorMinimoDespesa.value === "" || valorMaximoDespesa.value === ""){
-        alert("Preencha os campos!");
-    } else {
+    const valorMinimoDespesa = document.getElementById("valorMinimoDespesa");
+    const valorMaximoDespesa = document.getElementById("valorMaximoDespesa");
+    const tipoDespesaFiltrada = document.getElementById("tipoDespesaFiltrada");
+    const divDosValores = document.getElementById("listaFiltrada");
 
-        const listaFiltrada = document.getElementById("listaFiltrada")
-        
-        let tipoDespesa = document.getElementById("tipoDespesa");
-        let valorMinimoDespesa = document.getElementById("valorMinimoDespesa");
-        let valorMaximoDespesa = document.getElementById("valorMaximoDespesa");
-                
-        let despesasFiltradas = arrayDeDespesa.filter
-        ((despesa) => {
-        return despesa.tipoDespesa === tipoDespesa && despesa.valores >= valorMinimoDespesa && despesa.valores <= valorMaximoDespesa
+    const listaFiltrada = arrayDeDespesa.filter((elemento, index, array) => {
+        return elemento.tipo === tipoDespesaFiltrada.value && 
+        elemento.valor >= Number(valorMinimoDespesa.value) && 
+        elemento.valor <= Number(valorMaximoDespesa.value);
     })
-    for(const elementos of despesasFiltradas) {
 
-    }
+    listaFiltrada.forEach((elemento, index, array) => {
+        divDosValores.innerHTML += elemento.valor;
+        divDosValores.innerHTML += elemento.tipo;
+        divDosValores.innerHTML += elemento.descricao;
+    })
 
-    }
-   
+    console.log(listaFiltrada);
+
 }
 
 
@@ -64,4 +67,40 @@ function limparFiltros() {
 
     valorMinimoDespesa.value = "";
     valorMaximoDespesa.value = "";
+}
+
+// function somaDespesas() {
+//     const extrato = document.getElementById("conteudoExtrato");
+
+//     somaDasDespesas = 0;
+//     arrayDeDespesa.forEach((elemento, index, array) => {
+//         somaDasDespesas += Number(elemento.valor);
+//         let valorMinimoDespesa = document.getElementById("valorMinimoDespesa");
+//         let valorMaximoDespesa = document.getElementById("valorMaximoDespesa");
+    
+//         valorMinimoDespesa.value = "";
+//         valorMaximoDespesa.value = "";
+//     }
+    
+    function somaDespesas() {
+        const extrato = document.getElementById("conteudoExtrato");
+    
+        somaDasDespesas = 0;
+        arrayDeDespesa.forEach((elemento, index, array) => {
+            somaDasDespesas += Number(elemento.valor);
+        })
+    
+        extrato.innerHTML = somaDasDespesas + " reais.";
+    }
+
+function mostrarExtrato() {
+    const areaExtrato = document.getElementById("mostrarExtrato");
+
+    areaExtrato.innerHTML = "";
+
+    arrayDeDespesa.forEach((elemento, index, array) => {
+        areaExtrato.innerHTML += "<li>" + elemento.valor + "</li>";
+        areaExtrato.innerHTML += "<li>" + elemento.tipo + "</li>";
+        areaExtrato.innerHTML += "<li>" + elemento.descricao + "</li>";
+    })
 }
