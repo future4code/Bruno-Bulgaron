@@ -1,7 +1,3 @@
-let campoValor = document.getElementById("valorDespesa").value;
-let campoTipo = document.getElementById("tipoDespesa").value;
-let campoDescricao = document.getElementById("descricaoDespesa").value;
-
 class Despesa {
     constructor(valor, tipo, descricao) {
         this.valor = valor;
@@ -10,15 +6,23 @@ class Despesa {
     }
 }
 
-let arrayDeDespesa = [campoValor, campoTipo, campoDescricao];
+let arrayDeDespesa = [];
 
 function addDespesa(){
-    const novaDesepsa = new Despesa(arrayDeDespesa[0], arrayDeDespesa[1], arrayDeDespesa[2]);
 
+    let campoValor = document.getElementById("valorDespesa");
+    let campoTipo = document.getElementById("tipoDespesa");
+    let campoDescricao = document.getElementById("descricaoDespesa");
+
+    const novaDespesa = new Despesa(campoValor.value, campoTipo.value, campoDescricao.value);
+
+    arrayDeDespesa.push(novaDespesa);
+    
     campoValor.value = "";
     campoTipo.value = "";
     campoDescricao.value = "";
 
     console.log(arrayDeDespesa);
+
 }
 
