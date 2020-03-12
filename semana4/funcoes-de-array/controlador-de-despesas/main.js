@@ -80,7 +80,7 @@ function limparFiltros() {
     
 //         valorMinimoDespesa.value = "";
 //         valorMaximoDespesa.value = "";
-//     }
+//     }}
     
     function somaDespesas() {
         const extrato = document.getElementById("conteudoExtrato");
