@@ -89,3 +89,17 @@
 //     }
 // }
 // console.log(numPares(6));
+
+// Exercício 4
+
+// function ladosTriangulo(a, b, c){
+//     if(a === b && b === c){
+//         console.log("Equilátero");
+//     } else if (a !== b && b !== c && c !== a){
+//         console.log("Escaleno");
+//     } else {
+//         console.log("Isósceles");
+//     }
+// }
+
+// ladosTriangulo(3, 2, 1);
