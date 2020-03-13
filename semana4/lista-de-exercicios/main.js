@@ -155,3 +155,11 @@
 // }
 
 // soma();
+
+// ####################
+
+// Exercícios de Objetos
+
+// 1)
+/* Um objeto é como se fosse um bolo (usando uma analogia). O objeto BOLO contém as propriedades INGREDIENTES. Uma das utilidades de um Objeto é quando queremos utilizar as mesmas propriedades, porém, com valores diferentes. Por exemplo: vários tipos de bolos.
+Podemos utilizar array em objetos para caso quisermos filtrar os diferentes tipos de valores, por exemplo. */
