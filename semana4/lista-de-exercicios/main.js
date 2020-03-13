@@ -66,3 +66,11 @@
 
 // console.log("Os números pares são: " + numerosPares);
 // console.log("Os números ímpares são: " + numerosImpares);
+
+// Exerício 2
+
+// a - false
+// b - false
+// c - true
+// d - true
+// e - true
