@@ -103,3 +103,27 @@
 // }
 
 // ladosTriangulo(3, 2, 1);
+
+// Exercício 5
+
+// function exercicioCinco(num1, num2){
+//     if(num1 > num2){
+//         console.log("O número 1: ", num1, " é maior do que ", num2, " .");
+//     } else {
+//         console.log("O número 2: ", num2, " é maior do que ", num1, " .");
+//     }
+
+//     if(num1 % num2 === 0){
+//         console.log("O número 1: ", num1, " é divisível por ", num2, " .");
+//     } else {
+//         console.log("O número 1: ", num1, " não é divisível por ", num2, " .");
+//     }
+
+//     if(num1 > num2){
+//         console.log("A diferença entre eles é: ", num1 - num2);
+//     } else {
+//         console.log("A diferença entre eles é: ", num2 - num1);
+//     }
+// }
+
+// exercicioCinco(10, 50);
