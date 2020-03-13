@@ -127,3 +127,23 @@
 // }
 
 // exercicioCinco(10, 50);
+
+// ############################
+
+// Exercícios de Funções
+
+// Exercício 1
+
+// let meuArrayNumeros = [50, 30, 70, 80, 40, 90, 100];
+// let segundoMaiorNumero = 0;
+// let segundoMenorNumero = 0;
+
+// meuArrayNumeros.sort(function(a, b) {
+//     return a - b
+// });
+
+// segundoMenorNumero = meuArrayNumeros[(meuArrayNumeros.length - 2)];
+// console.log(segundoMenorNumero);
+
+// segundoMaiorNumero = meuArrayNumeros[1]
+// console.log(segundoMaiorNumero);
