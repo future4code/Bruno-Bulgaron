@@ -188,3 +188,22 @@ Podemos utilizar array em objetos para caso quisermos filtrar os diferentes tipo
 // }
 
 // console.log("Venha assistir ao filme ", filmeFavorito.titulo, " de ", filmeFavorito.ano, " dirigido por ", filmeFavorito.diretor, " e estrelado por ", filmeFavorito.atores[0], " ,", filmeFavorito.atrizes[0], filmeFavorito.elenco);
+
+// Exercício 4
+// function anonimizarPessoa(){
+//     let pessoa = {
+//         nome: "Bruno",
+//         idade: 26,
+//         email: "brunohbulgaron@gmail.com",
+//         endereco: "Rua sei lá"
+//     }
+
+//     let novoObjeto = {
+//         ...pessoa,
+//         nome: "ANÔNIMO"
+//     }
+
+//     return novoObjeto;
+// }
+
+// console.log(anonimizarPessoa());
