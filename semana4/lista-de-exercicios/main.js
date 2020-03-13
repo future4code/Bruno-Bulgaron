@@ -176,3 +176,15 @@ Podemos utilizar array em objetos para caso quisermos filtrar os diferentes tipo
 // }
 
 // console.log(criaRetangulo(5, 6));
+
+// 3
+// let filmeFavorito = {
+//     titulo: "Piratas do Caribe 1",
+//     ano: 2003,
+//     diretor: "Gore Verbinski",
+//     elenco: ['Johnny Depp', 'Orlando Bloom', 'Geoffrey Rush', 'Keira Knightley', 'Zoe Saldana', 'Jack Davenport', 'Jonathan Pryce'],
+//     atores: ['Johnny Depp', 'Orlando Bloom', 'Geoffrey Rush', 'Jack Davenport', 'Jonathan Pryce'],
+//     atrizes: ['Keira Knightley', 'Zoe Saldana']
+// }
+
+// console.log("Venha assistir ao filme ", filmeFavorito.titulo, " de ", filmeFavorito.ano, " dirigido por ", filmeFavorito.diretor, " e estrelado por ", filmeFavorito.atores[0], " ,", filmeFavorito.atrizes[0], filmeFavorito.elenco);
