@@ -147,3 +147,11 @@
 
 // segundoMaiorNumero = meuArrayNumeros[1]
 // console.log(segundoMaiorNumero);
+
+// Exercício 2
+
+// let soma = function(){
+//     alert("Hello Future4");
+// }
+
+// soma();
