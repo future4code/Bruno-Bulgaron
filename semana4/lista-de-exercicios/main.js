@@ -74,3 +74,18 @@
 // c - true
 // d - true
 // e - true
+
+// Exercício 3
+
+// O código não funciona pois a variável quantidadeDeNumerosPares está vazia e o while vai entrar em um loop infinito. Uma forma de arrumar isso seria criar uma função que receba um parâmetro e passar esse parâmetro para a variável quantidadeDeNumerosPares, e adicionar o i++ no while para ir acrescentando conforme ele for "achando" os números pares.
+
+// function numPares(numero){
+//     const qtdNumPares = numero;
+//     let i = 0;
+
+//     while(i < qtdNumPares){
+//         console.log(i * 2)
+//         i++
+//     }
+// }
+// console.log(numPares(6));
