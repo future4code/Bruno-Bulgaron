@@ -1,0 +1,9 @@
+.bigCard {
+    border: 3px solid red;
+    max-width: 40%;
+}
+
+.bigCard img {
+    width: 100px;
+    height: 100px;
+}
