@@ -5,7 +5,8 @@ function ImageButton(props){
     return (
         <div className="imageButton">
             <div className="divDoBotao">
-                <button>{ props.nomeBotao }</button>
+                <img src={ props.imgButton } />
+                <p>{ props.nomeBotao }</p>
             </div>
         </div>
     );
