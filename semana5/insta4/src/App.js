@@ -1,7 +1,18 @@
 import React from 'react';
 import './App.css';
 import Post from './components/Post/Post';
-import styled from 'styled-components';
+import styled from 'styled-components'
+
+// Estilização
+
+const ContainerParaCriarPost = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+
 
 class App extends React.Component {
   constructor(props) {
@@ -35,43 +46,75 @@ class App extends React.Component {
     }
   }
 
-  render() {
-    return (
-      
-      this.state.posts.map((post, index) => {
-        return(
-          <div className={'app-container'}>
-            <Post 
-              nomeUsuario = {post.nomeUsuario}
-              fotoUsuario = {post.fotoUsuario}
-              fotoPost = {post.fotoPost}
-              key = {index}
-            />
+  adicionaPost = () => {
+    const novoPost = {
+      nomeUsuario: this.state.valorInputNome,
+      fotoUsuario: this.state.valorInputFotoUsuario,
+      fotoPost: this.state.valorInputFotoPost
+    }
 
-            {/* Formulário */}
+    // Cópia da Array de posts e adiciona um post
+    const novosPosts = [novoPost, ...this.state.posts]
 
-            <input 
-              value={this.state.valorInputNome}
-              onChange={this.onChangeInputNome}
-              placeholder={"Nome"}
-            />
-            <input 
-              value={this.state.valorInputFotoUsuario}
-              onChange={this.onChangeInputFotoUsuario}
-              placeholder={"Foto do Usuário"}
-            />
-            <input 
-              value={this.state.valorInputFotoPost}
-              onChange={this.onChangeInputFotoPost}
-              placeholder={"Foto do Post"}
-            />
+    // Define o estado "posts" como a variável "novosPosts"
+    this.setState({
+      posts: novosPosts,
+      valorInputNome: "",
+      valorInputFotoUsuario: "",
+      valorInputFotoPost: ""
+    })
+  }
 
-            <button>Postar</button>
+  onChangeInputNome = event => {
+    this.setState({ valorInputNome: event.target.value })
+  }
 
-          </div>
-        )
-      })
-    );
+  onChangeInputFotoUsuario = event => {
+    this.setState({ valorInputFotoUsuario: event.target.value })
+  }
+  
+  onChangeInputFotoPost = event => {
+    this.setState({ valorInputFotoPost: event.target.value })
+  }
+  
+  render() {    
+    
+    let containerDosPosts = this.state.posts.map((post, index) => {
+      return(          
+        <div className={'app-container'}>            
+          <Post 
+            nomeUsuario = {post.nomeUsuario}
+            fotoUsuario = {post.fotoUsuario}
+            fotoPost = {post.fotoPost}
+            key = {index}
+          />
+        </div>
+      )
+    })
+
+    return(
+      <ContainerParaCriarPost>
+        <h2>Criar Post</h2>
+        <input 
+        value={this.state.valorInputNome}
+        onChange={this.onChangeInputNome}
+        placeholder={"Nome"}
+        />
+        <input 
+          value={this.state.valorInputFotoUsuario}
+          onChange={this.onChangeInputFotoUsuario}
+          placeholder={"Foto do Usuário"}
+        />
+        <input 
+          value={this.state.valorInputFotoPost}
+          onChange={this.onChangeInputFotoPost}
+          placeholder={"Foto do Post"}
+        />
+
+        <button onClick={this.adicionaPost}>Postar</button>
+        <div>{ containerDosPosts }</div>
+      </ContainerParaCriarPost>
+    )
   }
 }
 
