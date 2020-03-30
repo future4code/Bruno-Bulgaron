@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "c395d2e1-42fb-4b39-8648-21c7009fbf53",
+		"name": "Spotif4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createPlaylist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "auth",
+						"value": "\"bruno-hamilton\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Heavy-Metal\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-future-apis.cloudfunctions.net/spotifour/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-future-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"spotifour",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllPlaylists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "auth",
+						"value": "\"bruno-hamilton\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://us-central1-future-apis.cloudfunctions.net/spotifour/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-future-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"spotifour",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addSongToPlaylist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "auth",
+						"value": "\"bruno-hamilton\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"In My Time Of Need\",\n\t\"artist\": \"Opeth\",\n\t\"url\": \"https://open.spotify.com/track/3WtsQAngIkmcNeqVeK3fXQ\"\n}"
+				},
+				"url": {
+					"raw": "https://us-central1-future-apis.cloudfunctions.net/spotifour/playlists/:playlistId/songs",
+					"protocol": "https",
+					"host": [
+						"us-central1-future-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"spotifour",
+						"playlists",
+						":playlistId",
+						"songs"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "fb37726c-0501-4839-88a9-7da85d9f26cd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPlaylistSongs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "auth",
+						"value": "\"bruno-hamilton\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://us-central1-future-apis.cloudfunctions.net/spotifour/playlists/:playlistId/songs",
+					"protocol": "https",
+					"host": [
+						"us-central1-future-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"spotifour",
+						"playlists",
+						":playlistId",
+						"songs"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "fb37726c-0501-4839-88a9-7da85d9f26cd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchPlaylist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "auth",
+						"value": "\"bruno-hamilton\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://us-central1-future-apis.cloudfunctions.net/spotifour/playlists/search?name=Progressivo",
+					"protocol": "https",
+					"host": [
+						"us-central1-future-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"spotifour",
+						"playlists",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Progressivo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeSongFromPlaylist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "auth",
+						"value": "\"bruno-hamilton\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://us-central1-future-apis.cloudfunctions.net/spotifour/playlists/:playlistId/songs/:songId",
+					"protocol": "https",
+					"host": [
+						"us-central1-future-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"spotifour",
+						"playlists",
+						":playlistId",
+						"songs",
+						":songId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d0f85e3-3538-45ac-b241-ed708eabd2da"
+						},
+						{
+							"key": "songId",
+							"value": "b096c413-f203-4e29-8ab3-61a43c67798f"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
