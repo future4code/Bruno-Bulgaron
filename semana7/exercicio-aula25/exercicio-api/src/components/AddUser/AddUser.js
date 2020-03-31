@@ -46,11 +46,7 @@ class AddUser extends React.Component {
             inputEmailValue: event.target.value
         })
     }
-
-    mudaTelaPraListaUsuarios = () => {
-
-    }
-    
+   
     adicionaUser = () => {
         const userToAdd = {
             name: this.state.inputNomeValue,
@@ -66,9 +62,14 @@ class AddUser extends React.Component {
 
         request.then((response) => {
             window.alert("Usuário adicionado com sucesso!")
+            this.setState({
+                inputNomeValue: '',
+                inputEmailValue: ''
+            })
         }).catch((error) => {
-            window.alert("Houve um erro na hora de adicionar o usuário.")
+            window.alert("Houve um erro na hora de adicionar o usuário.")            
         })
+        
     }
 
     render() {
@@ -78,11 +79,13 @@ class AddUser extends React.Component {
                 <input 
                     type="text"
                     onChange={this.onChangeInputNomeValue}
+                    value={this.state.inputNomeValue}
                 ></input>
                 <label>E-mail: </label>
                 <input 
                     type="text"
                     onChange={this.onChangeInputEmailValue}
+                    value={this.state.inputEmailValue}
                 ></input>
                 <Botao
                     onClick={this.adicionaUser}>Salvar

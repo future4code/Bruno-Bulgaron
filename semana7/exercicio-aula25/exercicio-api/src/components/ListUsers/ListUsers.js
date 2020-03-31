@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+import DeleteUser from '../DeleteUser/DeleteUser';
+
 const ContainerListUsers = styled.div `
     display: flex;
     flex-direction: column;
@@ -11,18 +13,11 @@ const ContainerListUsers = styled.div `
     border: 1px solid black;
 `
 
-const Botao = styled.button `
-    color: black;
-    font-size: 1.1em;
-    border: none;
-    padding: 10px;
-    margin-top: 20px;
-
-    :hover {
-        cursor: pointer;
-        background-color: lightblue;
-        color: white;
-    }
+const ContainerDosUsuarios = styled.li `
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgrey;
+    padding: 5px;
 `
 
 class ListUsers extends React.Component {
@@ -30,7 +25,7 @@ class ListUsers extends React.Component {
         super(props)
 
         this.state = {
-            data: undefined,
+            usuarios: [],
             errorMessage: undefined
         }
     }
@@ -39,8 +34,12 @@ class ListUsers extends React.Component {
         this.listAllUsers()
     }
 
-    listAllUsers = (id) => {
-        const request = axios.get(`https://us-central1-future-apis.cloudfunctions.net/api/users/${id}`, {
+    componentDidUpdate() {
+        this.listAllUsers()
+    }
+
+    listAllUsers = () => {
+        const request = axios.get('https://us-central1-future-apis.cloudfunctions.net/api/users/', {
             headers: {
                 'Content-Type': 'application/json',
                 'api-token': 'bruno-hamilton'
@@ -48,11 +47,11 @@ class ListUsers extends React.Component {
         })
 
         request.then((response) => {
-            this.setState({
-                data: response.data
-            })
+            const listaUsuarios = response.data.result;
 
-            console.log(response.data)
+            this.setState({
+                usuarios: listaUsuarios
+            })            
 
         }).catch((error) => {
             this.setState({
@@ -66,7 +65,12 @@ class ListUsers extends React.Component {
             <ContainerListUsers>                
                 <h3>Usuários Cadastrados</h3>
                 <ul>
-                    <li>Placeholder</li>
+                    {this.state.usuarios.map((usuario) => {
+                        return <ContainerDosUsuarios>
+                                    {usuario.name}
+                                    {<DeleteUser userId={usuario.id}/>}
+                               </ContainerDosUsuarios>
+                    })}
                 </ul>
                 <div>
                     {this.props.children}
