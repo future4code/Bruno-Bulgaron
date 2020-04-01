@@ -28,7 +28,10 @@ class DeleteUser extends React.Component {
     }
 
     deletarUsuario = () => {
-        const request = axios.delete(`https://us-central1-future-apis.cloudfunctions.net/api/users/${this.props.userId}`, {
+        let escolhaDeletar = window.confirm("Você tem certeza que deseja deletar este usuário?")
+
+        if(escolhaDeletar === true) {
+            const request = axios.delete(`https://us-central1-future-apis.cloudfunctions.net/api/users/${this.props.userId}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'api-token': 'bruno-hamilton'
@@ -40,6 +43,10 @@ class DeleteUser extends React.Component {
         }).catch((error) => {
             window.alert("Ocorreu um erro ao deletar o usuário.")
         })
+        
+        }
+
+        
     }
 
     render() {

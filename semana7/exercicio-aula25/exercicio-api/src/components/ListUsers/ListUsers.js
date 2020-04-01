@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 import DeleteUser from '../DeleteUser/DeleteUser';
+import InfoUser from '../InfoUser/InfoUser';
 
 const ContainerListUsers = styled.div `
     display: flex;
@@ -26,6 +27,7 @@ class ListUsers extends React.Component {
 
         this.state = {
             usuarios: [],
+            id: [],
             errorMessage: undefined
         }
     }
@@ -34,9 +36,6 @@ class ListUsers extends React.Component {
         this.listAllUsers()
     }
 
-    componentDidUpdate() {
-        this.listAllUsers()
-    }
 
     listAllUsers = () => {
         const request = axios.get('https://us-central1-future-apis.cloudfunctions.net/api/users/', {
@@ -48,9 +47,11 @@ class ListUsers extends React.Component {
 
         request.then((response) => {
             const listaUsuarios = response.data.result;
+            const listaUsuariosId = response.data.result.id;
 
             this.setState({
-                usuarios: listaUsuarios
+                usuarios: listaUsuarios,
+                id: listaUsuariosId
             })            
 
         }).catch((error) => {
@@ -66,7 +67,7 @@ class ListUsers extends React.Component {
                 <h3>Usuários Cadastrados</h3>
                 <ul>
                     {this.state.usuarios.map((usuario) => {
-                        return <ContainerDosUsuarios>
+                        return <ContainerDosUsuarios infoUser={<InfoUser />}>
                                     {usuario.name}
                                     {<DeleteUser userId={usuario.id}/>}
                                </ContainerDosUsuarios>
@@ -75,7 +76,7 @@ class ListUsers extends React.Component {
                 <div>
                     {this.props.children}
                 </div>
-            </ContainerListUsers>            
+            </ContainerListUsers>
         )
     }
 }
