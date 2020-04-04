@@ -43,7 +43,12 @@ class AdicionarMusica extends React.Component {
                 'auth': 'bruno-hamilton'
             }
         }).then((response) => {
-            alert("Música adicionada com sucesso!")
+            alert(`A música ${this.state.inputValueTitulo} foi adicionada com sucesso!`)
+            this.setState({
+                inputValueTitulo: '',
+                inputValueArtista: '',
+                inputValueUrl: ''
+            })
         }).catch((error) => {
             alert("Ocorreu um erro ao adicionar a música.")
         })
