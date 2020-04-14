@@ -1,21 +1,43 @@
 import React from 'react';
 import { Container, Title, Input, ListItem, BtnDel, BtnAdd } from './styles';
 
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+	
+  }
+  
+  render() {
+    return (
+      <Container>
+        <Title>To-Do App</Title>      
+        <form>
+          <Input 
+            type="text"
+            placeholder="O que tem que ser feito?"
+          >
+          </Input>
+          <BtnAdd>Adicionar</BtnAdd>
+        </form>
+        <ul>
+          
+        </ul>
+      </Container>
+    );
+  }  
+}
+
+export default App;
+
 /*
-
 Actions que iremos precisar
-
 - Adicionar Todo                                  (ADD_TODO)
 - Remover Todo                                    (REMOVE_TODO)
 - Marcar Todo como completo                       (COMPLET_TODO)
 - Desmarcar Todo como completo                    (INCOMPLET_TODO)
 - Marcar todos os Todo como completos             (ALL_TODOS_COMPLETE)
 - Remover todos os Todo marcados como completos   (ALL_TODOS_INCOMPLETE)
-
-
 Action-Creators para os Actions acima
-
-
 function addTodo(valorInputTodo) {
   return {
     type: 'ADD_TODO',
@@ -26,7 +48,6 @@ function addTodo(valorInputTodo) {
     }
   }
 }
-
 function removeTodo(id) {
   return {
     type: 'REMOVE_TODO',
@@ -35,7 +56,6 @@ function removeTodo(id) {
     }
   }
 }
-
 function completTodo(id) {
   return {
     type: 'COMPLET_TODO',
@@ -45,7 +65,6 @@ function completTodo(id) {
     }
   }
 }
-
 function incompletTodo(id) {
   return {
     type: 'INCOMPLET_TODO',
@@ -55,7 +74,6 @@ function incompletTodo(id) {
     }
   }
 }
-
 function allTodosComplete(arrayQueContemTodos) {
   return {
     type: 'ALL_TODOS_COMPLETE',
@@ -64,7 +82,6 @@ function allTodosComplete(arrayQueContemTodos) {
     }
   }
 }
-
 function allTodosIncomplete(arrayQueContemTodos) {
   return {
     type: 'ALL_TODOS_INCOMPLETE',
@@ -73,33 +90,4 @@ function allTodosIncomplete(arrayQueContemTodos) {
     }
   }
 }
-
 */
-
-function App() {
-  return (
-    <Container>
-      <Title>To-Do App</Title>      
-      <form>
-        <Input type="text" placeholder="O que tem que ser feito?"></Input>
-        <BtnAdd>Adicionar</BtnAdd>
-      </form>
-      <ul>
-        <ListItem>
-          Terminar a tarefa de hoje
-          <BtnDel>X</BtnDel>
-        </ListItem>
-        <ListItem>
-          Fazer café
-          <BtnDel>X</BtnDel>
-        </ListItem>
-        <ListItem>
-          Jogar Elder Scrolls Online
-          <BtnDel>X</BtnDel>
-        </ListItem>
-      </ul>
-    </Container>
-  );
-}
-
-export default App;
