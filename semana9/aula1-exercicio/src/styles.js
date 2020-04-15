@@ -1,16 +1,31 @@
 import styled from 'styled-components';
 
 export const Container = styled.div `
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-max-width: 50%;
-margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    margin: 0 auto;
+`
+
+export const ContainerFiltros = styled.div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+`
+
+export const Ul = styled.ul `
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 
 export const Title = styled.h1 `
-font-size: 3em;
+    font-size: 3em;
 `
 
 export const Input = styled.input `
@@ -48,6 +63,16 @@ export const BtnAdd = styled.button `
     :hover {
         cursor: pointer;
         background-color: lightgrey;
-        transform: scale(1.1);
+    }
+`
+
+export const BtnFiltro = styled.button `
+    border: none;
+    color: black;
+    height: 30px;
+    margin: 10px;
+    :hover {
+        cursor: pointer;
+        background-color: lightblue;
     }
 `
