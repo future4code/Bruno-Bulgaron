@@ -7,6 +7,8 @@ import { Typography, TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 
+import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+
 
 const ContainerComponent = styled.div`
     text-align: center;
@@ -21,13 +23,23 @@ const ContainerForm = styled.form `
 `
 
 
-class CreateTripPage extends React.Component{
+class ApplicationForm extends React.Component{
     constructor(props){
         super(props)
 
         this.state = {
-            form: {}
+            form: {
+                country: ''
+            }
         }
+    }
+
+    selectCountry (val) {
+        this.setState({ country: val });
+      }
+     
+    selectRegion (val) {
+    this.setState({ region: val });
     }
 
     handleFormSubmit = event => {
@@ -49,11 +61,12 @@ class CreateTripPage extends React.Component{
     }
 
     render() {
-        const { goBackOnePage } = this.props
+        const { goToHomePage } = this.props
+        const { country, region } = this.state;
 
         return (            
             <ContainerComponent>
-                <Typography variant="h4">Criar Nova Viagem</Typography>
+                <Typography variant="h4">Faça sua inscrição</Typography>
 
                 <ContainerForm onSubmit={this.handleFormSubmit}>                
                     <TextField
@@ -64,28 +77,22 @@ class CreateTripPage extends React.Component{
                         type="text"
                         name="nome"                        
                         id="standard-basic"
-                        label="Nome da viagem"
+                        label="Digite seu nome"
                         pattern="[A-Za-z ãé]{3,}"
                         onChange={this.handleInputChange}
                         value={this.state.form.nome || ""}
                     />
-                    
-                    <label>Planeta:</label>
-                    <select>
-                    <option>Mercúrio</option>
-                        <option>Vênus</option>
-                        <option>Marte</option>
-                        <option>Júpiter</option>
-                        <option>Saturno</option>
-                        <option>Urano</option>
-                        <option>Netuno</option>
-                    </select> 
 
-                    <TextField
+                    <TextField 
+                        inputProps={{
+                            min: 18
+                        }}
                         required
-                        type="text"
-                        id="standard-basic"
-                        label="Data" 
+                        name="idade"
+                        type="number"
+                        label="Digite sua idade"
+                        onChange={this.handleInputChange}
+                        value={this.state.form.idade || ""}
                     />
 
                     <TextField
@@ -94,26 +101,46 @@ class CreateTripPage extends React.Component{
                         }}
                         required
                         type="text"
+                        name="descricao"                        
                         id="standard-basic"
-                        label="Descrição" 
+                        label="Descreva-se"
+                        pattern="[A-Za-z ãé]{3,}"
+                        onChange={this.handleInputChange}
+                        value={this.state.form.descricao || ""}
                     />
-
+                    
                     <TextField
                         inputProps={{
-                            minLength: 50
+                            minLength: 10
                         }}
                         required
                         type="text"
+                        name="profissao"                        
                         id="standard-basic"
-                        label="Duração" 
+                        label="Sua profissão"
+                        pattern="[A-Za-z ãé]{3,}"
+                        onChange={this.handleInputChange}
+                        value={this.state.form.profissao || ""}
+                    />
+
+                    <label>País:</label>
+                    <CountryDropdown 
+                        value={country}
+                        onChange={(val) => this.selectCountry(val)}
+                    />
+
+                    <label>Estado:</label>
+                    <RegionDropdown 
+                        country={country}
+                        value={region}
+                        onChange={(val) => this.selectRegion(val)}
                     />
                     
                     <Button variant="outlined" type="submit">
                         Enviar
                     </Button>
-
-                    <Button variant="outlined" onClick={goBackOnePage}>Voltar</Button>
-
+                    
+                    <Button variant="outlined" onClick={goToHomePage}>Página Inicial</Button>
                 </ContainerForm>
             </ContainerComponent>
         )
@@ -121,7 +148,7 @@ class CreateTripPage extends React.Component{
 }
 
 const mapDispatchToProps = dispatch => ({
-    goBackOnePage: () => dispatch(goBack())
+    goToHomePage: () => dispatch(push(routes.root))
 })
 
-export default connect(null, mapDispatchToProps)(CreateTripPage)
+export default connect(null, mapDispatchToProps)(ApplicationForm)

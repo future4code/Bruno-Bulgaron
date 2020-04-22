@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { push } from "connected-react-router";
+import { push, goBack } from "connected-react-router";
+import { routes } from '../Router';
+
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
@@ -31,6 +33,7 @@ class LoginPage extends Component {
 
   render() {
     const { email, password } = this.state;
+    const { goBackOnePage, goToAdminPage } = this.props
 
     return (
       <LoginWrapper>
@@ -49,9 +52,16 @@ class LoginPage extends Component {
           value={password}
         />
         <Button>Login</Button>
+        <Button onClick={goToAdminPage}>Login Fake</Button>
+        <Button onClick={goBackOnePage}>Voltar</Button>
       </LoginWrapper>
     );
   }
 }
 
-export default connect()(LoginPage);
+const mapDispatchToProps = dispatch => ({
+  goToAdminPage: () => dispatch(push(routes.adminPanel)),
+  goBackOnePage: () => dispatch(goBack())
+})
+
+export default connect(null, mapDispatchToProps)(LoginPage);
