@@ -147,8 +147,12 @@ class ApplicationForm extends React.Component{
     }
 }
 
+const mapStateToProps = state => ({
+    allTrips: state.trips.allTrips
+})
+
 const mapDispatchToProps = dispatch => ({
     goToHomePage: () => dispatch(push(routes.root))
 })
 
-export default connect(null, mapDispatchToProps)(ApplicationForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ApplicationForm)

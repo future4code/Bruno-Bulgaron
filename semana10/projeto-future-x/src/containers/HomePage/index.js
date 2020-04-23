@@ -4,6 +4,7 @@ import { push } from 'connected-react-router';
 import { routes } from '../Router';
 import { Button, Typography } from '@material-ui/core';
 import styled from 'styled-components';
+import { fetchTrips } from '../../actions/trips';
 
 const Container = styled.div `
     display: grid;
@@ -15,6 +16,7 @@ class HomePage extends React.Component{
     render() {
 
         const { goToLoginPage, goToApplicationForm } = this.props
+        this.props.fetchTrips()
 
         return (
             <Container>
@@ -28,7 +30,8 @@ class HomePage extends React.Component{
 
 const mapDispatchToProps = dispatch => ({
     goToLoginPage: () => dispatch(push(routes.login)),
-    goToApplicationForm: () => dispatch(push(routes.applicationForm))
+    goToApplicationForm: () => dispatch(push(routes.applicationForm)),
+    fetchTrips: () => dispatch(fetchTrips())
 })
 
 export default connect(null, mapDispatchToProps)(HomePage)
