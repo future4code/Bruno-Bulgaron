@@ -1,5 +1,7 @@
 const initialState = {
-    allTrips: []
+    allTrips: [],
+    tripDetails: [],
+    tripId: ''
 }
 
 function trips(state = initialState, action) {
@@ -8,6 +10,18 @@ function trips(state = initialState, action) {
             return {
                 ...state,
                 allTrips: action.payload.trips
+            }
+        }
+        case "SET_IDS": {
+            return {
+                ...state,
+                tripId: action.payload.id
+            }
+        }
+        case "GET_TRIP_DETAILS_SYNC": {
+            return {
+                ...state,
+                tripDetails: action.payload.trips
             }
         }
     }

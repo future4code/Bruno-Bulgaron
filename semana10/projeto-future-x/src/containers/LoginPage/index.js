@@ -6,6 +6,7 @@ import { routes } from '../Router';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
+import { login } from "../../actions/trips";
 
 const LoginWrapper = styled.form`
   width: 100%;
@@ -31,12 +32,20 @@ class LoginPage extends Component {
     });
   };
 
+  handleLogin = event => {
+    event.preventDefault()
+    this.props.login(
+      this.state.email,
+      this.state.password
+    )
+  }
+
   render() {
     const { email, password } = this.state;
-    const { goBackOnePage, goToAdminPage } = this.props
+    const { goToHomePage, goToAdminPage } = this.props
 
     return (
-      <LoginWrapper>
+      <LoginWrapper onSubmit={this.handleLogin}>
         <TextField
           onChange={this.handleFieldChange}
           name="email"
@@ -51,9 +60,8 @@ class LoginPage extends Component {
           label="Password"
           value={password}
         />
-        <Button>Login</Button>
-        <Button onClick={goToAdminPage}>Login Fake</Button>
-        <Button onClick={goBackOnePage}>Voltar</Button>
+        <Button type="submit">Login</Button>
+        <Button onClick={goToHomePage}>Voltar</Button>
       </LoginWrapper>
     );
   }
@@ -61,7 +69,8 @@ class LoginPage extends Component {
 
 const mapDispatchToProps = dispatch => ({
   goToAdminPage: () => dispatch(push(routes.adminPanel)),
-  goBackOnePage: () => dispatch(goBack())
+  goToHomePage: () => dispatch(push(routes.root)),
+  login: (email, password) => dispatch(login(email, password))
 })
 
 export default connect(null, mapDispatchToProps)(LoginPage);

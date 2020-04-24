@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 
 import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+import { fetchTrips } from '../../actions/trips';
 
 
 const ContainerComponent = styled.div`
@@ -30,17 +31,18 @@ class ApplicationForm extends React.Component{
         this.state = {
             form: {
                 country: ''
-            }
+            },
+            trip: ''
         }
     }
 
-    selectCountry (val) {
-        this.setState({ country: val });
-      }
-     
-    selectRegion (val) {
-    this.setState({ region: val });
+    componentDidMount() {
+        this.props.fetchTrips()
     }
+
+    selectCountry (val) {
+        this.setState({ country: val });  
+    }   
 
     handleFormSubmit = event => {
         event.preventDefault()
@@ -60,9 +62,15 @@ class ApplicationForm extends React.Component{
         })
     }
 
+    handleSelectTrip = event => {
+        this.setState({
+            trip: event.target.value
+        })
+    }
+
     render() {
-        const { goToHomePage } = this.props
-        const { country, region } = this.state;
+        const { goToHomePage, fetchTrips } = this.props
+        const { country } = this.state;
 
         return (            
             <ContainerComponent>
@@ -70,22 +78,24 @@ class ApplicationForm extends React.Component{
 
                 <ContainerForm onSubmit={this.handleFormSubmit}>                
                     <TextField
-                        inputProps={{
-                            minLength: 5
+                        inputProps={{                            
+                            pattern: "[A-Za-z ãéÁáêõÕÊíÍçÇÚúüÜ]{3,}",
+                            title: "O nome precisa ter no mínimo 5 caracteres"
                         }}
                         required
                         type="text"
                         name="nome"                        
                         id="standard-basic"
-                        label="Digite seu nome"
-                        pattern="[A-Za-z ãé]{3,}"
+                        label="Nome"
                         onChange={this.handleInputChange}
                         value={this.state.form.nome || ""}
                     />
 
                     <TextField 
                         inputProps={{
-                            min: 18
+                            min: 18,
+                            max: 100,
+                            title: "A idade deve ser maior ou igual a 18"
                         }}
                         required
                         name="idade"
@@ -97,28 +107,27 @@ class ApplicationForm extends React.Component{
 
                     <TextField
                         inputProps={{
-                            minLength: 30
+                            title: "É necessário 30 caracteres no mínimo.",
+                            pattern: "[A-Za-z ãéÁáêõÕÊíÍçÇÚúüÜ!?.,;]{30,}"
                         }}
                         required
                         type="text"
                         name="descricao"                        
                         id="standard-basic"
                         label="Descreva-se"
-                        pattern="[A-Za-z ãé]{3,}"
                         onChange={this.handleInputChange}
                         value={this.state.form.descricao || ""}
                     />
                     
                     <TextField
                         inputProps={{
-                            minLength: 10
+                            pattern: "[A-Za-z ãéÁáêõÕÊíÍçÇÚúüÜ!?.,;]{10,}",
                         }}
                         required
                         type="text"
                         name="profissao"                        
                         id="standard-basic"
                         label="Sua profissão"
-                        pattern="[A-Za-z ãé]{3,}"
                         onChange={this.handleInputChange}
                         value={this.state.form.profissao || ""}
                     />
@@ -127,15 +136,23 @@ class ApplicationForm extends React.Component{
                     <CountryDropdown 
                         value={country}
                         onChange={(val) => this.selectCountry(val)}
-                    />
+                    />                    
 
-                    <label>Estado:</label>
-                    <RegionDropdown 
-                        country={country}
-                        value={region}
-                        onChange={(val) => this.selectRegion(val)}
-                    />
-                    
+                    <label>Selecione a viagem:</label>
+                    <select onChange={this.handleSelectTrip}>
+                        <option>Nenhum</option>
+                        {this.props.allTrips.map((trip) => {
+                            return (
+                                <option 
+                                    key={trip.id}
+                                    value={trip.id}
+                                >
+                                    {trip.name} - {trip.planet}
+                                </option>
+                            )
+                        })}
+                    </select>
+
                     <Button variant="outlined" type="submit">
                         Enviar
                     </Button>
@@ -152,7 +169,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    goToHomePage: () => dispatch(push(routes.root))
+    goToHomePage: () => dispatch(push(routes.root)),
+    fetchTrips: () => dispatch(fetchTrips())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationForm)

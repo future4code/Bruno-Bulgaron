@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { goBack } from 'connected-react-router';
-import { push } from 'connected-react-router';
+import { push, replace } from 'connected-react-router';
 import { routes } from '../Router';
 import { Button, Typography } from '@material-ui/core';
 import styled from 'styled-components';
@@ -15,9 +14,24 @@ const ContainerAdmin = styled.div `
 `
 
 class AdminPage extends React.Component{
+
+    componentDidMount() {
+        const token = localStorage.getItem('token')
+        if(token === null) {
+            this.props.goToLoginPage()
+        }
+    }
+
+    handleLogout = () => { 
+        localStorage.clear();
+        window.location.reload()
+    }
+
     render() {
 
-        const { goToHomePage, goToCreateTripPage, goToListTripsPage, goToSubscriptionsPage } = this.props
+        const isLogged = localStorage.getItem('token') !== null
+        
+        const { goToCreateTripPage, goToListTripsPage, goToSubscriptionsPage } = this.props
         
         return (
             <ContainerAdmin>
@@ -27,7 +41,7 @@ class AdminPage extends React.Component{
                 <Button variant="outlined" color="primary" onClick={goToCreateTripPage}>Criar Nova Viagem</Button>
                 <Button variant="outlined" color="secondary" onClick={goToListTripsPage}>Listar Viagens</Button>
                 <Button variant="outlined" onClick={goToSubscriptionsPage}>Inscrições</Button>
-                <Button variant="outlined" onClick={goToHomePage}>Sair</Button>
+                {isLogged && <Button variant="outlined" onClick={this.handleLogout}>Logout</Button>}
             </ContainerAdmin>
         )
     }
@@ -37,7 +51,7 @@ const mapDispatchToProps = dispatch => ({
     goToCreateTripPage: () => dispatch(push(routes.tripsCreate)),
     goToListTripsPage: () => dispatch(push(routes.tripsListAdmin)),
     goToSubscriptionsPage: () => dispatch(push(routes.subscriptions)),
-    goToHomePage: () => dispatch(push(routes.root)),
+    goToLoginPage: () => dispatch(replace(routes.login))
   })
   
   export default connect(null, mapDispatchToProps)(AdminPage);
