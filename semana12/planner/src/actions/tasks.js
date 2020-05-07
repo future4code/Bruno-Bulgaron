@@ -4,7 +4,7 @@ export function setTasks(tasksFromApi){
     return {
         type: 'SET_TASKS',
         payload: {
-            allTasks: tasksFromApi
+            tasks: tasksFromApi
         }
     }
 }
@@ -20,6 +20,14 @@ export const getTasks = () => async(dispatch) => {
     }
 }
 
-export const createTask = () => async(dispatch) => {
-    await axios.put('https://us-central1-missao-newton.cloudfunctions.net/generic/planner-bruno')
+export const createTask = (body) => async(dispatch) => {
+    try {
+        await axios.post('https://us-central1-missao-newton.cloudfunctions.net/generic/planner-bruno', body)
+
+        alert("Tarefa criada com sucesso!")
+        dispatch(getTasks())
+    
+    }catch(error){
+        alert("Erro ao criar tarefa.")
+    }
 }

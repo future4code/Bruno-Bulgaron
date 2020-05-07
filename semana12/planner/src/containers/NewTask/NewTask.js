@@ -1,25 +1,79 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { createTask } from '../../actions/tasks'
 
-export default class NewTask extends Component {
+class NewTask extends Component {
+    constructor(props){
+        super(props)
+
+        this.state = {
+            taskForm: {
+                text: '',
+                day: ''
+            }
+        }
+    }
+
+    handleInputChange = (event) => {
+        const { name, value } = event.target
+        this.setState({
+            taskForm: {
+                ...this.state.taskForm, [name]: value
+            }
+        })
+    }
+    
+    handleCreateTask = (event) => {
+        event.preventDefault()
+        
+        const { createTask } = this.props
+        
+        createTask(this.state.taskForm)
+        
+        this.setState({
+            taskForm: {
+                text: '',
+                day: ''
+            }
+        })
+    }
+    
     render() {
         return (
             <div>
                 <h1>Planner</h1>
                 
-                <input placeholder="Digite a tarefa aqui"></input>
+                <input
+                    placeholder="Digite a tarefa aqui"
+                    name="text"
+                    type="text"
+                    onChange={this.handleInputChange}
+                    value={this.state.taskForm.text}
+                ></input>
                 
-                <select>
-                    <option value="segunda">Segunda-Feira</option>
-                    <option value="terca">Terça-Feira</option>
-                    <option value="quarta">Quarta-Feira</option>
-                    <option value="quinta">Quinta-Feira</option>
-                    <option value="sexta">Sexta-Feira</option>
-                    <option value="sabado">Sábado</option>
-                    <option value="domingo">Domingo</option>
+                <select
+                    name="day"
+                    onChange={this.handleInputChange}
+                    value={this.state.taskForm.day}
+                >
+                    <option>Selecione o dia</option>
+                    <option>Segunda-Feira</option>
+                    <option>Terça-Feira</option>
+                    <option>Quarta-Feira</option>
+                    <option>Quinta-Feira</option>
+                    <option>Sexta-Feira</option>
+                    <option>Sábado</option>
+                    <option>Domingo</option>
                 </select>
                 
-                <button>Criar</button>
+                <button onClick={this.handleCreateTask}>Criar</button>
             </div>
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    createTask: (body) => dispatch(createTask(body))
+})
+
+export default connect(null, mapDispatchToProps)(NewTask)
