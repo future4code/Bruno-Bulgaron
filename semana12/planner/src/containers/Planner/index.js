@@ -16,11 +16,27 @@ class Planner extends React.Component {
     renderTasks = () => {
         const { tasks } = this.props
 
+        const newTaskList = {}
+
+        {tasks[0] && tasks.forEach((task) => {
+            if(newTaskList[task.day]){
+                newTaskList[task.day].push(task)
+            }else{
+                newTaskList[task.day] = [task]
+            }
+        })}
+
         return (
             daysOfTheWeek.map((day) => {
                 return (
                     <DivDeCadaDia>
                         {day}
+                        {newTaskList[day] && 
+                        newTaskList[day].map((task) => {
+                            return (
+                                <p>{task.text}</p>
+                            )
+                        })}
                     </DivDeCadaDia>
                 )
             })
