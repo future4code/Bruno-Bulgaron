@@ -1,0 +1,26 @@
+[
+  {
+    "name": "fazer café",
+    "description": "sem açúcar",
+    "dateStart": "28/05/2020, 16:00",
+    "dateEnd": "29/05/2020, 08:00"
+  },
+  {
+    "name": "tomar café",
+    "description": "até acabar",
+    "dateStart": "28/05/2020, 16:00",
+    "dateEnd": "30/05/2020, 08:00"
+  },
+  {
+    "name": "comprar cerveja",
+    "description": "na promoção",
+    "dateStart": "Invalid date",
+    "dateEnd": "30/05/2020, 08:00"
+  },
+  {
+    "name": "comprar cerveja",
+    "description": "na promoção",
+    "dateStart": "Invalid date",
+    "dateEnd": "Invalid date"
+  }
+]
