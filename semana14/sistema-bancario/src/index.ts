@@ -2,19 +2,21 @@ import * as fs from "fs";
 export {}
 
 type user = {
-    name: string,
-    cpf: number | string,
-    dateOfBirth: number | string,
-    balance: number,
+    name:          string,
+    cpf:           number | string,
+    dateOfBirth:   number | string,
+    balance:       number,
+    value:         number
 }
 
 const accountsArray: user[] = require('../accounts.json')
 const moment = require('moment');
 
-const option: string = process.argv[2];
-const name: string = process.argv[3];
-const cpf: string = process.argv[4];
+const option:      string = process.argv[2];
+const name:        string = process.argv[3];
+const cpf:         string = process.argv[4];
 const dateOfBirth: string = process.argv[5];
+const value:       number = Number(process.argv[6]);
 
 const formatedBirth = moment(dateOfBirth, "DD/MM/YYYY")
 const age = moment().diff(moment(formatedBirth, "DD/MM/YYYY"), "years")
@@ -24,7 +26,8 @@ const newUser: user = {
     cpf: cpf,
     // dateOfBirth: moment(process.argv[5], "DD/MM/YYYY"),
     dateOfBirth: dateOfBirth,
-    balance: 0
+    balance: 0,
+    value: 0
 }
 
 function createAccount(){
@@ -48,11 +51,50 @@ function createAccount(){
 }
 
 function getAllAccounts(){
-    const allAccounts = accountsArray
+    const allAccounts = accountsArray;
     console.log(allAccounts);
 }
 
+function getBalance(name: string, cpf: number | string){
+    const resultOfBalance = accountsArray.find((account: any) => {
+        return (account.name === name && account.cpf === cpf)
+    })
+    
+    if(resultOfBalance === undefined){
+        return console.log("Conta inexistente.");
+    }else{
+        return console.log("Saldo R$", resultOfBalance.balance)
+    }
+}
+
+function addBalance(name: string, cpf: number | string, value: number): void{
+    const resultOfAddBalance = accountsArray.find((account: any) => {
+        return account.cpf === cpf
+    })
+
+    if(resultOfAddBalance !== undefined && resultOfAddBalance.name === name){
+        const valueToAdd = accountsArray.map((element) => {
+            if(resultOfAddBalance === element){
+                element.balance += value;
+                return element
+            }else{
+                return element
+            }
+        })
+
+        fs.writeFileSync(`accounts.json`, JSON.stringify(valueToAdd));
+        return console.log("Valor adicionado com sucesso!");
+    }else{
+        return console.log("Erro.");
+    }
+}
+
 switch(option){
+    case "ops": {
+        console.log("Operações disponíveis: create, accounts, balance, addBalance");
+        break;
+    }
+
     case "create": {
         createAccount();
         break;
@@ -63,6 +105,17 @@ switch(option){
         break;
     }
 
+    case "balance": {
+        getBalance(name, cpf);
+        break;
+    }
+
+    case "addBalance": {
+        addBalance(name, cpf, value);
+        break;
+    }
+
     default:
+        console.log("Erro: operação desconhecida.");
         break;
 }
