@@ -1,0 +1,22 @@
+{
+  "name": "polimorfismo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "tsc && node build/Client.js",
+    "residence": "tsc && node build/Residence.js",
+    "commerce": "tsc && node build/Commerce.js",
+    "industry": "tsc && node build/Industry.js",
+    "residentialClient": "tsc && node build/ResidentialClient.js",
+    "commercialClient": "tsc && node build/CommercialClient.js",
+    "industrialClient": "tsc && node build/IndustrialClient.js",
+    "clientManager": "tsc && node build/ClientManager.js"
+  },
+  "author": "Bruno Bulgaron",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.0.9",
+    "typescript": "^3.9.3"
+  }
+}
