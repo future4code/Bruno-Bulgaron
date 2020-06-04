@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Student_1 = require("./Student");
+const Teacher_1 = require("./Teacher");
+const moment = require("moment");
+const FullTimeMission_1 = require("./FullTimeMission");
+const NightMission_1 = require("./NightMission");
+const jackSparrow = new Student_1.Student(1, "Jack Sparrow", "jacksparrow@pirates.com", moment("06/06/1888", "DD/MM/YYYY"), ["Tomar café", "Tomar Rum", "Encontrar tesouros!"]);
+console.log(jackSparrow);
+console.log(jackSparrow.getAge());
+const senhorReact = new Teacher_1.Teacher(10, "Senhor React", "react_eh_top@teachers.com", [Teacher_1.TEACHER_SPECIALTY.REACT, Teacher_1.TEACHER_SPECIALTY.REDUX]);
+console.log(senhorReact);
+const missaoPirata = new FullTimeMission_1.FullTimeMission(10, moment("01/06/2020", "DD/MM/YYYY"), moment("01/12/2020", "DD/MM/YYYY"), [], [], 1);
+missaoPirata.setName("Missão Pirata");
+console.log(missaoPirata.getName(""));
+console.log(missaoPirata);
+const missaoDaEscuridao = new NightMission_1.NightMission(20, moment("01/07/2020", "DD/MM/YYYY"), moment("01/01/2021", "DD/MM/YYYY"), [], [], 1);
+missaoDaEscuridao.setName("Missão da Escuridão -na-night");
+console.log(missaoDaEscuridao.getName(""));
+console.log(missaoDaEscuridao);
+//# sourceMappingURL=index.js.map
