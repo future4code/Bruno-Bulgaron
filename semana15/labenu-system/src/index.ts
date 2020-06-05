@@ -3,9 +3,14 @@ import { Teacher, TEACHER_SPECIALTY } from './Teacher';
 import * as moment from 'moment';
 import { FullTimeMission } from './FullTimeMission';
 import { NightMission } from './NightMission';
+import { Students } from './Students';
 
 // Instância de um novo Student
 const jackSparrow = new Student(1, "Jack Sparrow", "jacksparrow@pirates.com", moment("06/06/1888", "DD/MM/YYYY"), ["Tomar café", "Tomar Rum", "Encontrar tesouros!"])
+
+const allStudents = new Students;
+allStudents.addStudent(jackSparrow);
+allStudents.writeFile(allStudents.arrayStudents);
 
 console.log(jackSparrow);
 console.log(jackSparrow.getAge());
