@@ -9,24 +9,24 @@ export class UsersDatabase extends BaseDatabase {
                 .insert(body)
                 .into(BaseDatabase.TABLE_USERS);
 
-            super.destroyConnection();            
+            super.destroyConnection();
         }catch(error){
             throw new Error(error.message);
         };
     };
 
-    // public async getUserByEmail(email: string){
-    //     try{
-    //         const user = await super.getConnection()
-    //             .select("*")
-    //             .from(BaseDatabase.TABLE_USERS)
-    //             .where({email});
+    public async getUserByEmail(email: string){
+        try{
+            const user = await super.getConnection()
+                .select("*")
+                .from(BaseDatabase.TABLE_USERS)
+                .where({email});
 
-    //         super.destroyConnection();
+            super.destroyConnection();
 
-    //         return user[0];
-    //     }catch(error){
-    //         throw new Error(error.message);
-    //     };
-    // };
+            return user[0];
+        }catch(error){
+            throw new Error(error.message);
+        };
+    };
 };

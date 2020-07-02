@@ -3,7 +3,7 @@ import { HashManager } from '../services/HashManager'
 import { IdGenerator } from '../services/IdGenerator';
 import { UsersDatabase } from '../data/UsersDatabase';
 import { Authenticator } from '../services/Authenticator';
-import { failureMessage } from '../messages';
+import { UsersBusiness } from '../business/UsersBusiness';
 
 export class UsersController {
     public async signUp(req: Request, res: Response){
@@ -15,51 +15,37 @@ export class UsersController {
                 role: req.body.role
             }
 
-            const hashedPassword = await new HashManager().hash(userData.password);
-            const id = new IdGenerator().generate();
+            const signUpUser = await new UsersBusiness().signUp(
+                userData,
+                new IdGenerator,
+                new HashManager,
+                new Authenticator,
+                new UsersDatabase
+            )
 
-            const signUp = await new UsersDatabase().createUser({
-                id,
-                name: userData.name,
-                email: userData.email,
-                password: hashedPassword,
-                role: userData.role
-            });
-
-            const token = new Authenticator().generateToken({ id });
-
-            res.status(200).send({ token });
+            res.status(200).send({ token: signUpUser });
         }catch(error){
             res.status(400).send({ message: error.message });
         };
     };
 
-    // public async login(req: Request, res: Response){
-    //     try{
-    //         const userData = {
-    //             email: req.body.email,
-    //             password: req.body.password
-    //         };            
+    public async login(req: Request, res: Response){
+        try{
+            const userData = {
+                email: req.body.email,
+                password: req.body.password
+            };            
 
-    //         const userLogged = await new UsersDatabase().getUserByEmail(userData.email)
-
-    //         if(!userLogged){
-    //             throw new Error(failureMessage.login);
-    //         }
+            const login = await new UsersBusiness().login(
+                userData,
+                new UsersDatabase,
+                new HashManager,
+                new Authenticator
+            );
             
-    //         const authorization = await new HashManager().compare(
-    //             userData.password, userLogged.password
-    //         );
-
-    //         if(authorization){
-    //             const token = new Authenticator().generateToken({ id: userLogged.id });
-
-    //             res.status(200).send(token);
-    //         }else{
-    //             throw new Error(failureMessage.login);
-    //         };
-    //     }catch(error){
-    //         res.status(400).send({ message: error.message });
-    //     };
-    // };
+            res.status(200).send(login);            
+        }catch(error){
+            res.status(400).send({ message: error.message });
+        };
+    };
 };
