@@ -12,5 +12,6 @@ export enum failureMessage{
     bandNotFound = "Banda não encontrada.",
     invalidToken = "Token inválido.",
     invalidDay = "Dia inválido.",
-    invalidHour = "Horário inválido."
+    invalidHour = "Horário inválido.",
+    invalidDate = "Data inválida."
 };
