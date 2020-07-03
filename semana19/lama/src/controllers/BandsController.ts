@@ -26,5 +26,29 @@ export class BandsController {
         }catch(error){
             res.status(400).send({ message: error.message });
         };
+
+        await new BandsDatabase().destroyConnection();
+    };
+
+    public async getBandById(req: Request, res: Response){
+        try{
+            const data = {
+                token: req.headers.auth,
+                id: req.params.id
+            };
+
+            const band = await new BandsBusiness().getBandById(
+                data,
+                new BandsDatabase,
+                new Authenticator
+            );
+
+            res.status(200).send({ response: band });
+
+        }catch(error){
+            res.status(400).send({ message: error.message });
+        };
+
+        await new BandsDatabase().destroyConnection();
     };
 };

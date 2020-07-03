@@ -1,5 +1,4 @@
 import {failureMessage} from '../messages';
-import { BaseDatabase } from '../data/BaseDatabase';
 
 export class BandsBusiness {
     public async createBand(
@@ -22,5 +21,24 @@ export class BandsBusiness {
             music_genre: bandData.music_genre,
             responsible: bandData.responsible
         });        
+    };
+
+    public async getBandById(
+        data: any,
+        BandsDatabase: any,
+        Authenticator: any,
+
+    ): Promise<any>{
+        const auth = Authenticator.getData(data.token);
+
+        if(!auth) return new Error("Erro auth");
+
+        const band = await BandsDatabase.getBandById(data.id);
+
+        if(!band){
+            throw new Error(failureMessage.bandNotFound);
+        }
+
+        return band;
     };
 };
