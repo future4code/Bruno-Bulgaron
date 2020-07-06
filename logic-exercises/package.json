@@ -1,0 +1,12 @@
+{
+  "name": "logic-exercises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ex1a.js",
+  "scripts": {
+    "start": "tsc && node build/ex1a.js",
+    "start2": "tsc && node build/ex1b.js"
+  },
+  "author": "Bruno Bulgaron",
+  "license": "ISC"
+}
