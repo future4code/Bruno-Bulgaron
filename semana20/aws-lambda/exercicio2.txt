@@ -1,0 +1,7 @@
+exports.handler = async event => {
+    const response = {
+        message: event.mensagem
+    }
+    
+    return response;
+};

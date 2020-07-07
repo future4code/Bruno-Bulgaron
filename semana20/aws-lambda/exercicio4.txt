@@ -1,0 +1,27 @@
+exports.handler = async event => {
+    const checaEmail = event.email.includes("@");
+    const checaPonto = event.email.includes(".");
+    let isEmail = undefined;
+    
+    if(!checaEmail){
+      let resultado;
+      return resultado = {
+        isEmail: false,
+        reason: "Não tem o arroba"
+      };
+    }
+    
+    if(!checaPonto){
+      let resultado;
+      return resultado = {
+        isEmail: false,
+        reason: "Não tem o ponto"
+      };
+    }
+    
+    const total = {
+      isEmail: true
+    };
+    
+    return total;
+  };

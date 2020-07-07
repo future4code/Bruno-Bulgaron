@@ -1,0 +1,8 @@
+A) Não;
+B) Cai no erro "Missing input";
+C) Cai no erro "Missing input", também;
+D) Cai no erro "Missing email";
+E) Cai no erro "Invalid password";
+F) Aparece "User is correct";
+G) Trocar no statusCode dentro do Return do email;
+H) É o da letra F;
